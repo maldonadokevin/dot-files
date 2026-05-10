@@ -1,6 +1,9 @@
 # Make Homebrew-installed tools available
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Enable zsh completion system (picks up Homebrew completions via FPATH)
+autoload -Uz compinit && compinit
+
 # uv environment (includes uv tools in PATH, only if installed)
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 

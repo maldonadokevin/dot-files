@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.Spotlight-V100
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python / uv
+__pycache__/
+*.pyc
+.env
+.venv/
+*.egg-info/
+
+# Misc
+*.log
+*.orig

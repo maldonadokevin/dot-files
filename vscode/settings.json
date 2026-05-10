@@ -1,0 +1,38 @@
+{
+  // VSCodeVim: leader key matches .vimrc
+  "vim.leader": ",",
+
+  // Use system clipboard so yank/paste works across apps
+  "vim.useSystemClipboard": true,
+
+  // Keep search highlight visible until cleared
+  "vim.hlsearch": true,
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // <leader><space>  Clear search highlight
+    {
+      "before": ["<leader>", "<space>"],
+      "commands": [":nohlsearch"]
+    },
+    // <leader>f  Format document
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    // <leader>e  Open Problems panel
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.actions.view.problems"]
+    },
+    // gi  Go to implementation
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    // gr  Go to references
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    }
+  ]
+}

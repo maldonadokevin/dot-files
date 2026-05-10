@@ -1,0 +1,27 @@
+[user]
+	# Fill in per machine, or override in ~/.gitconfig.local
+	name  = Your Name
+	email = your@email.com
+
+[core]
+	editor     = vim
+	autocrlf   = input  # Normalize line endings to LF on commit
+
+[pull]
+	rebase = true  # Rebase instead of merge on git pull
+
+[init]
+	defaultBranch = main
+
+[alias]
+	st      = status
+	co      = checkout
+	br      = branch
+	lg      = log --oneline --graph --decorate  # Compact branch graph
+	unstage = reset HEAD --
+	last    = log -1 HEAD
+	undo    = reset --soft HEAD~1  # Undo last commit, keep changes staged
+
+[include]
+	# Machine-specific overrides (not tracked in dot-files)
+	path = ~/.gitconfig.local

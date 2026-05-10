@@ -1,8 +1,8 @@
 " Leader key
 let mapleader = ","
 
-" Line numbers (absolute + relative)
-set number relativenumber
+" Absolute line numbers
+set number
 
 " Tabs as 4 spaces
 set expandtab tabstop=4 shiftwidth=4

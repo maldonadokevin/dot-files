@@ -15,6 +15,7 @@
 
 [alias]
 	st      = status
+    sb      = status -sb
 	co      = checkout
 	br      = branch
 	lg      = log --oneline --graph --decorate  # Compact branch graph

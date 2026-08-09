@@ -1,5 +1,5 @@
 " Leader key
-let mapleader = ","
+let mapleader = " "
 
 " Absolute line numbers
 set number

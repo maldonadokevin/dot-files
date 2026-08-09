@@ -1,0 +1,10 @@
+{
+  "permissions": {
+      "deny": [
+        "Read(**/.env.local)",
+        "Read(**/.env.dev)"
+      ]
+  },
+  "theme": "auto"
+}
+

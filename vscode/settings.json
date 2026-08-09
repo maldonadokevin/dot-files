@@ -1,6 +1,10 @@
 {
-  // VSCodeVim: leader key matches .vimrc
-  "vim.leader": ",",
+      "python.defaultInterpreterPath": "${workspaceFolder}/app/.venv/bin/python3",
+    "python.envFile": "${workspaceFolder}/.env.dev",
+    "jupyter.notebookEnvFile": "${workspaceFolder}/.env.dev",
+    "workbench.editor.empty.hint": "hidden",
+      // VSCodeVim: leader key matches .vimrc
+  "vim.leader": "<space>",
 
   // Use system clipboard so yank/paste works across apps
   "vim.useSystemClipboard": true,
@@ -9,6 +13,10 @@
   "vim.hlsearch": true,
 
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+    "before": ["<space>"],
+    "commands": []
+  },
     // <leader><space>  Clear search highlight
     {
       "before": ["<leader>", "<space>"],
@@ -24,6 +32,11 @@
       "before": ["<leader>", "e"],
       "commands": ["workbench.actions.view.problems"]
     },
+    // <leader>r  Rename
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.r"]
+    },
     // gi  Go to implementation
     {
       "before": ["g", "i"],
@@ -33,6 +46,30 @@
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
-    }
-  ]
+    },
+      // <leader>i  Go back (previous location)
+  {
+    "before": ["<leader>", "i"],
+    "commands": ["workbench.action.navigateBack"]
+  },
+  // <leader>o  Go forward (next location)
+  {
+    "before": ["<leader>", "o"],
+    "commands": ["workbench.action.navigateForward"]
+  }
+
+  ],
+  "claudeCode.preferredLocation": "panel",
+  "workbench.colorTheme": "Visual Studio Light",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.analysis.typeCheckingMode": "standard",
+  "editor.rulers": [
+    120
+  ],
+  "diffEditor.renderSideBySide": false,
+  "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": true,
+  "chat.viewSessions.orientation": "stacked"
 }

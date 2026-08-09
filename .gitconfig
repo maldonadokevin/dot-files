@@ -1,27 +1,43 @@
-[user]
-	# Fill in per machine, or override in ~/.gitconfig.local
-	name  = Your Name
-	email = your@email.com
+# Identity (name/email) is intentionally not tracked here.
+# Set it per machine in ~/.gitconfig.local, e.g.:
+#   [user]
+#       name  = Your Name
+#       email = you@example.com
 
 [core]
-	editor     = vim
-	autocrlf   = input  # Normalize line endings to LF on commit
+	editor       = vim
+	autocrlf     = input  # Normalize line endings to LF on commit
+	excludesfile = ~/.gitignore_global
 
 [pull]
 	rebase = true  # Rebase instead of merge on git pull
+
+[push]
+	autoSetupRemote = true  # Auto-create upstream on first push
 
 [init]
 	defaultBranch = main
 
 [alias]
 	st      = status
-    sb      = status -sb
+	sb      = status -sb
 	co      = checkout
+	sw      = switch
 	br      = branch
 	lg      = log --oneline --graph --decorate  # Compact branch graph
+	tree    = log --graph --all --oneline --decorate
+	line    = log --pretty=format:'%C(auto)%h %C(green)%an%C(auto)%d %s'
+	recent  = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short) (%(committerdate:relative))'
+	fall    = fetch --all
+	mor     = merge origin main
+	pushf   = push --force-with-lease
+	rv      = revert
+	rs      = restore
 	unstage = reset HEAD --
 	last    = log -1 HEAD
 	undo    = reset --soft HEAD~1  # Undo last commit, keep changes staged
+	wip     = !git add . && git commit -m "wip"
+	changes = "!f() { base=\"${1:-main}\"; git diff \"$base\"...HEAD; }; f"
 
 [include]
 	# Machine-specific overrides (not tracked in dot-files)

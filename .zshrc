@@ -1,3 +1,13 @@
+# uv environment (adds uv + tools to PATH)
+. "$HOME/.local/bin/env"
+
+# Aliases
+alias dc="docker compose"
+alias dcup="docker compose --profile dev up --build"
+alias ls="eza --icons --color=never -F"
+alias lg="lazygit"
+alias ll="ls -l"
+
 # Make Homebrew-installed tools available
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -12,25 +22,41 @@ autoload -Uz compinit && compinit
 
 # Don't let virtualenv modify the prompt (we handle it below)
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 setopt PROMPT_SUBST
 
 # Load version control info
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-# Git branch in purple
-zstyle ':vcs_info:git:*' formats ' %F{13}(%b)%f'
+# Detect light vs dark background from $COLORFGBG (set by iTerm2's shell
+# integration as "fg;bg"); background 7 or 15 means a light background.
+if [[ "${COLORFGBG##*;}" == 7 || "${COLORFGBG##*;}" == 15 ]]; then
+  PROMPT_PATH_COLOR=4    # blue
+  PROMPT_BRANCH_COLOR=5  # purple
+  PROMPT_VENV_COLOR=2    # dark green
+else
+  PROMPT_PATH_COLOR=12   # bright blue
+  PROMPT_BRANCH_COLOR=13 # bright magenta
+  PROMPT_VENV_COLOR=10   # bright green
+fi
 
-# Active virtualenv in green
+# Git branch, colored per detected theme
+zstyle ':vcs_info:git:*' formats " %F{${PROMPT_BRANCH_COLOR}}(%b)%f"
+
+# Active virtualenv, colored per detected theme
 python_venv() {
   if [[ -n "$VIRTUAL_ENV" ]]; then
-    echo " %F{2}($(basename "$VIRTUAL_ENV"))%f"
+    echo " %F{${PROMPT_VENV_COLOR}}($(basename "$VIRTUAL_ENV"))%f"
   fi
 }
 
-# Prompt: user:~/path (venv) (branch) %
-PROMPT='%F{0}%n%f:%B%F{4}%~%f%b$(python_venv)${vcs_info_msg_0_} %# '
+# Prompt: ~/path (venv) (branch) %
+PROMPT='%B%F{${PROMPT_PATH_COLOR}}%~%f%b$(python_venv)${vcs_info_msg_0_} %# '
 
-# Machine-local config: secrets, work aliases, etc. Not tracked in dot-files.
+# Large shared history
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+# Machine-local config: secrets, work aliases, machine-specific env, etc.
+# Not tracked in dot-files. See .zshrc.local.example.
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

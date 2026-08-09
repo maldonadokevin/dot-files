@@ -1,0 +1,12 @@
+# Copy to ~/.zshrc.local and fill in. This file is sourced by .zshrc but is
+# NOT tracked in dot-files — put secrets and machine-specific settings here.
+
+# Android SDK
+# export ANDROID_HOME="$HOME/Library/Android/sdk"
+# export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
+
+# Secrets / API tokens
+# export OPENAI_API_KEY="..."
+# export JIRA_API_TOKEN="..."
+# export JIRA_URL="https://your-org.atlassian.net"
+# export JIRA_USERNAME="you@example.com"

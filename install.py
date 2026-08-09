@@ -83,6 +83,7 @@ TOOLS = [
 REPO = Path(__file__).parent.resolve()
 HOME = Path.home()
 VSCODE_SETTINGS = HOME / "Library/Application Support/Code/User/settings.json"
+CLAUDE_DIR = HOME / ".claude"
 
 FILES = [
     (REPO / ".zshrc",               HOME / ".zshrc"),
@@ -91,6 +92,9 @@ FILES = [
     (REPO / ".gitignore_global",    HOME / ".gitignore_global"),
     (REPO / ".tmux.conf",           HOME / ".tmux.conf"),
     (REPO / "vscode/settings.json", VSCODE_SETTINGS),
+    (REPO / "claude/settings.json",  CLAUDE_DIR / "settings.json"),
+    (REPO / "claude/_settings.json", CLAUDE_DIR / "_settings.json"),
+    (REPO / "claude/CLAUDE.md",      CLAUDE_DIR / "CLAUDE.md"),
 ]
 
 

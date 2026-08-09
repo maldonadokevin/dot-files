@@ -1,0 +1,62 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(git push)",
+      "Bash(git push:*)",
+      "Bash(git push *)",
+      "Bash(git commit)",
+      "Bash(git commit:*)",
+      "Bash(git commit *)",
+      "Bash(git merge)",
+      "Bash(git merge:*)",
+      "Bash(git merge *)",
+      "Bash(git rebase)",
+      "Bash(git rebase:*)",
+      "Bash(git rebase *)",
+      "Bash(git cherry-pick)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git cherry-pick *)",
+      "Bash(git revert)",
+      "Bash(git revert:*)",
+      "Bash(git revert *)",
+      "Bash(git reset)",
+      "Bash(git reset:*)",
+      "Bash(git reset *)",
+      "Bash(git tag)",
+      "Bash(git tag:*)",
+      "Bash(git tag *)",
+      "Bash(git am)",
+      "Bash(git am:*)",
+      "Bash(git am *)",
+      "Bash(git pull)",
+      "Bash(git pull:*)",
+      "Bash(git pull *)",
+      "Bash(gh)",
+      "Bash(gh:*)",
+      "Bash(gh *)",
+      "Bash(glab)",
+      "Bash(glab:*)",
+      "Bash(glab *)",
+      "Bash(but)",
+      "Bash(but:*)",
+      "Bash(but *)"
+    ],
+    "defaultMode": "plan"
+  },
+  "model": "opusplan",
+  "enabledPlugins": {
+    "logfire@pydantic-skills": true,
+    "ai@pydantic-skills": true,
+    "pydantic-ai-harness@pydantic-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "pydantic-skills": {
+      "source": {
+        "source": "github",
+        "repo": "pydantic/skills"
+      }
+    }
+  },
+  "effortLevel": "max",
+  "theme": "auto"
+}

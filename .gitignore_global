@@ -17,6 +17,13 @@ __pycache__/
 .venv/
 *.egg-info/
 
+# Obsidian
+.obsidian/
+
+# Local-only files
+/**/kevin-local
+/**/kevin_local
+
 # Misc
 *.log
 *.orig
